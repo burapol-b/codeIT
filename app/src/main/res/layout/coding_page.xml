@@ -4,76 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdFragment">
+    tools:context=".CodingFragment">
 
     <TextView
-        android:id="@+id/textview_third"
+        android:id="@+id/CodingPage_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_third"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_third"
+        android:id="@+id/moveforward_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
+        android:text="@string/move_forward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third" />
+        app:layout_constraintTop_toBottomOf="@id/CodingPage_textview"
+        app:layout_constraintVertical_bias="0.213" />
 
     <Button
-        android:id="@+id/button_ON"
+        android:id="@+id/movebackward_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ON"
+        android:text="@string/move_backward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/CodingPage_textview"
+        app:layout_constraintVertical_bias="0.427" />
 
     <Button
-        android:id="@+id/button_OFF"
+        android:id="@+id/moveright_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OFF"
+        android:text="@string/move_right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.798"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintTop_toBottomOf="@id/CodingPage_textview"
+        app:layout_constraintVertical_bias="0.325" />
 
-    <ImageView
-        android:id="@+id/off_bulb"
-        android:layout_width="207dp"
-        android:layout_height="463dp"
-        android:src="@drawable/off"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="134dp"
+    <Button
+        android:id="@+id/moveleft_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/move_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third"/>
+        app:layout_constraintTop_toBottomOf="@id/CodingPage_textview"
+        app:layout_constraintVertical_bias="0.325" />
 
-    <ImageView
-        android:id="@+id/on_bulb"
-        android:layout_width="209dp"
-        android:layout_height="510dp"
-        android:src="@drawable/on"
-        android:visibility="invisible"
+    <Button
+        android:id="@+id/showproject_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showproject_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@id/CodingPage_textview"
+        app:layout_constraintVertical_bias="0.832" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

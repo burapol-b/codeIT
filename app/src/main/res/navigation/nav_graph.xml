@@ -10,30 +10,28 @@
         android:name="com.coe.project.codeit.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_FirstFragment_to_codingFragment"
+            app:destination="@id/codingFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.coe.project.codeit.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/codingFragment"
+        android:name="com.coe.project.codeit.CodingFragment"
+        android:label="CodingPage"
+        tools:layout="@layout/CodingPage" >
         <action
-            android:id="@+id/action_SecondFragment_to_ThirdFragmen"
-            app:destination="@id/ThirdFragmen" />
+            android:id="@+id/action_codingFragment_to_showProjectFragment"
+            app:destination="@id/showProjectFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/ThirdFragmen"
-        android:name="com.coe.project.codeit.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" >
+        android:id="@+id/showProjectFragment"
+        android:name="com.coe.project.codeit.ShowProjectFragment"
+        android:label="ShowProjectPage"
+        tools:layout="@layout/ShowProjectPage" >
         <action
-            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            android:id="@+id/action_showProjectFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 
