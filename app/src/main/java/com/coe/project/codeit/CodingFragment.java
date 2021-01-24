@@ -9,6 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.coe.project.codeit.BluetoothConnection.CommandControl.*;
+
+import static com.coe.project.codeit.BluetoothConnection.CommandControl.connectedThread;
+
 public class CodingFragment extends Fragment {
 
     @Override
@@ -26,37 +30,50 @@ public class CodingFragment extends Fragment {
         view.findViewById(R.id.moveforward_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String cmdText = null;
                 System.out.println("Move Forward output from app");
+                cmdText = "moveforward";
+                connectedThread.write(cmdText);
             }
         });
 
         view.findViewById(R.id.movebackward_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String cmdText = null;
                 System.out.println("Move Backward output from app");
+                cmdText = "movebackward";
+                connectedThread.write(cmdText);
             }
         });
 
         view.findViewById(R.id.moveleft_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String cmdText = null;
                 System.out.println("Move Left output from app");
+                cmdText = "moveleft";
+                connectedThread.write(cmdText);
             }
         });
 
         view.findViewById(R.id.moveright_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String cmdText = null;
                 System.out.println("Move Right output from app");
+                cmdText = "moveright";
+                connectedThread.write(cmdText);
             }
         });
 
+        /*
         view.findViewById(R.id.showproject_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(CodingFragment.this)
                         .navigate(R.id.action_FirstFragment_to_commandControl);
             }
-        });
+        });*/
     }
 }

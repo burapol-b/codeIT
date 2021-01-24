@@ -27,8 +27,12 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_commandControl);
+                        .navigate(R.id.action_FirstFragment_to_codingFragment2);
             }
         });
+
+        view.findViewById(R.id.button_first2).setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
+                .navigate(R.id.action_FirstFragment_to_commandControl3));
+
     }
 }

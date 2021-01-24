@@ -11,13 +11,22 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/action_FirstFragment_to_commandControl"
-            app:destination="@id/commandControl" />
+            android:id="@+id/action_FirstFragment_to_codingFragment2"
+            app:destination="@id/codingFragment2" />
+        <action
+            android:id="@+id/action_FirstFragment_to_commandControl3"
+            app:destination="@id/commandControl3" />
     </fragment>
+
+    <fragment
+        android:id="@+id/codingFragment2"
+        android:name="com.coe.project.codeit.CodingFragment"
+        android:label="coding_page"
+        tools:layout="@layout/coding_page" />
     <activity
-        android:id="@+id/commandControl"
+        android:id="@+id/commandControl3"
         android:name="com.coe.project.codeit.BluetoothConnection.CommandControl"
-        android:label="activity_commandcontrol"
-        tools:layout="@layout/activity_commandcontrol" />
+        android:label="commandcontrol_layout"
+        tools:layout="@layout/commandcontrol_layout" />
 
 </navigation>

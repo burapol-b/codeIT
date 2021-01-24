@@ -4,6 +4,7 @@ package com.coe.project.codeit.BluetoothConnection;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ActionBar;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -13,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -43,7 +45,7 @@ public class CommandControl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commandcontrol);
+        setContentView(R.layout.commandcontrol_layout);
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);
@@ -53,6 +55,8 @@ public class CommandControl extends AppCompatActivity {
         final TextView textViewInfo = findViewById(R.id.textViewInfo);
         final Button buttonToggle = findViewById(R.id.buttonToggle);
         buttonToggle.setEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // If a bluetooth device has been selected from SelectDeviceActivity
         deviceName = getIntent().getStringExtra("deviceName");
@@ -127,13 +131,13 @@ public class CommandControl extends AppCompatActivity {
                         buttonToggle.setText("Turn Off");
                         System.out.println("ON");
                         // Command to turn on LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "moveforward";
+                        cmdText = "moveforward,movebackward,movebackward,movebackward";
                         break;
                     case "turn off":
                         System.out.println("OFF");
                         buttonToggle.setText("Turn On");
                         // Command to turn off LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "movebackward";
+                        cmdText = "movebackward,movebackward,moveleft,moveright";
                         break;
                 }
                 // Send command to Arduino board
@@ -280,4 +284,5 @@ public class CommandControl extends AppCompatActivity {
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
     }
+
 }
