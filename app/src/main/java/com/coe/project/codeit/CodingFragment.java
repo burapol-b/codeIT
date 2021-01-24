@@ -55,7 +55,7 @@ public class CodingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(CodingFragment.this)
-                        .navigate(R.id.action_codingFragment_to_showProjectFragment);
+                        .navigate(R.id.action_FirstFragment_to_commandControl);
             }
         });
     }
