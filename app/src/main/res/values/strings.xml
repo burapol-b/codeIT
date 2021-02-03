@@ -17,5 +17,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="showproject_header">SHOW PROJECT</string>
+    <string name="taptostart">TAP TO START</string>
 
 </resources>

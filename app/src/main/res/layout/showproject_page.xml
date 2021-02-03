@@ -4,40 +4,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowProjectFragment">
+    tools:context=".BluetoothConnection.ShowProjectFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="showProject header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="282dp">
 
-    <FrameLayout
-        android:id="@+id/showProject_Frame"
-        android:layout_width="368dp"
-        android:layout_height="594dp"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
 
-    <Button
-        android:id="@+id/run_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="676dp"
-        android:text="RUN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="568dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:stretchColumns="0,1,2,3">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/cmd1_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd2_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd3_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd4_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/cmd5_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd6_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd7_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd8_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/cmd9_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd10_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd11_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd12_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/cmd13_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd14_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd15_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd16_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/cmd17_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd18_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd19_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd20_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/cmd21_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd22_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd23_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/cmd24_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:src="@tools:sample/avatars" />
+            </TableRow>
+
+        </TableLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="66dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_media_play" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

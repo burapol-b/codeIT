@@ -15,4 +15,7 @@
     <color name="colorOff">#FFFFFF</color>
     <color name="colorOn">#E040FB</color>
 
+    <color name="yellow">#FFEB3B</color>
+    <color name="bg_blue">#0DB3EC</color>
+
 </resources>
