@@ -1,0 +1,128 @@
+package com.coe.project.codeit.CodingPage;
+
+import android.content.Context;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.coe.project.codeit.R;
+
+import static com.coe.project.codeit.BluetoothConnection.CommandControl.connectedThread;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link coding_Fragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class coding_Fragment extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private String cmd = "";
+
+    public coding_Fragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment coding_Fragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static coding_Fragment newInstance(String param1, String param2) {
+        coding_Fragment fragment = new coding_Fragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_coding, container, false);
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final LinearLayout ll = (LinearLayout)view.findViewById(R.id.cmdshow);
+        final TextView result_view = (TextView)view.findViewById(R.id.projectresult_view);
+
+        view.findViewById(R.id.forward_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("forward_btn");
+                cmd += "moveforward,";
+            }
+        });
+
+        view.findViewById(R.id.backward_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("backward_btn");
+                cmd += "movebackward,";
+            }
+        });
+
+        view.findViewById(R.id.left_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("left_btn");
+                cmd += "moveleft,";
+            }
+        });
+
+        view.findViewById(R.id.right_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("right_btn");
+                cmd += "moveright,";
+            }
+        });
+
+        view.findViewById(R.id.run_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result_view.setText(cmd);
+                if (cmd != null && cmd.length() > 0) {
+                    cmd = cmd.substring(0, cmd.length() - 1);
+                }
+                System.out.println(cmd);
+                result_view.setText(cmd);
+            }
+        });
+
+    }
+
+}
