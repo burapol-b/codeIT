@@ -26,5 +26,8 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.start_btn).setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
                 .navigate(R.id.action_FirstFragment_to_coding_Fragment));
 
+        view.findViewById(R.id.bt_btn).setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
+                .navigate(R.id.action_FirstFragment_to_commandControl3));
+
     }
 }

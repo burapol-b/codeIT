@@ -33,7 +33,7 @@
         tools:layout="@layout/commandcontrol_layout" />
     <fragment
         android:id="@+id/coding_Fragment"
-        android:name="com.coe.project.codeit.CodingPage.coding_Fragment"
+        android:name="com.coe.project.codeit.CodingPage.CodingFragment"
         android:label="fragment_coding"
         tools:layout="@layout/fragment_coding" />
 

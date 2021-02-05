@@ -67,13 +67,5 @@ public class CodingFragment extends Fragment {
             }
         });
 
-        /*
-        view.findViewById(R.id.showproject_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(CodingFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_commandControl);
-            }
-        });*/
     }
 }

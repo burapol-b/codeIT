@@ -1,6 +1,5 @@
 package com.coe.project.codeit.CodingPage;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,10 +17,10 @@ import static com.coe.project.codeit.BluetoothConnection.CommandControl.connecte
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link coding_Fragment#newInstance} factory method to
+ * Use the {@link CodingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class coding_Fragment extends Fragment {
+public class CodingFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +33,7 @@ public class coding_Fragment extends Fragment {
 
     private String cmd = "";
 
-    public coding_Fragment() {
+    public CodingFragment() {
         // Required empty public constructor
     }
 
@@ -48,8 +46,8 @@ public class coding_Fragment extends Fragment {
      * @return A new instance of fragment coding_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static coding_Fragment newInstance(String param1, String param2) {
-        coding_Fragment fragment = new coding_Fragment();
+    public static CodingFragment newInstance(String param1, String param2) {
+        CodingFragment fragment = new CodingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,7 +75,7 @@ public class coding_Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final LinearLayout ll = (LinearLayout)view.findViewById(R.id.cmdshow);
-        final TextView result_view = (TextView)view.findViewById(R.id.projectresult_view);
+
 
         view.findViewById(R.id.forward_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,12 +112,18 @@ public class coding_Fragment extends Fragment {
         view.findViewById(R.id.run_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result_view.setText(cmd);
                 if (cmd != null && cmd.length() > 0) {
                     cmd = cmd.substring(0, cmd.length() - 1);
                 }
+                connectedThread.write(cmd);
                 System.out.println(cmd);
-                result_view.setText(cmd);
+            }
+        });
+
+        view.findViewById(R.id.reset_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cmd ="";
             }
         });
 
