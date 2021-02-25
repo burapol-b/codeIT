@@ -1,5 +1,6 @@
 package com.coe.project.codeit.CodingPage;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.coe.project.codeit.R;
 
 import static com.coe.project.codeit.BluetoothConnection.CommandControl.connectedThread;
+import com.coe.project.codeit.CodingPage.RecyclerDragdropActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,10 +60,6 @@ public class CodingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -73,9 +71,6 @@ public class CodingFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        final LinearLayout ll = (LinearLayout)view.findViewById(R.id.cmdshow);
-
 
         view.findViewById(R.id.forward_btn).setOnClickListener(new View.OnClickListener() {
             @Override

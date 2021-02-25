@@ -11,21 +11,19 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/action_FirstFragment_to_codingFragment2"
-            app:destination="@id/codingFragment2" />
-        <action
             android:id="@+id/action_FirstFragment_to_commandControl3"
             app:destination="@id/commandControl3" />
         <action
             android:id="@+id/action_FirstFragment_to_coding_Fragment"
             app:destination="@id/coding_Fragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_selectDeviceActivity"
+            app:destination="@id/selectDeviceActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_recyclerDragdropActivity"
+            app:destination="@id/recyclerDragdropActivity" />
     </fragment>
 
-    <fragment
-        android:id="@+id/codingFragment2"
-        android:name="com.coe.project.codeit.CodingFragment"
-        android:label="coding_page"
-        tools:layout="@layout/coding_page" />
     <activity
         android:id="@+id/commandControl3"
         android:name="com.coe.project.codeit.BluetoothConnection.CommandControl"
@@ -36,5 +34,15 @@
         android:name="com.coe.project.codeit.CodingPage.CodingFragment"
         android:label="fragment_coding"
         tools:layout="@layout/fragment_coding" />
+    <activity
+        android:id="@+id/selectDeviceActivity"
+        android:name="com.coe.project.codeit.BluetoothConnection.SelectDeviceActivity"
+        android:label="activity_select_device"
+        tools:layout="@layout/activity_select_device" />
+    <activity
+        android:id="@+id/recyclerDragdropActivity"
+        android:name="com.coe.project.codeit.CodingPage.RecyclerDragdropActivity"
+        android:label="showcmd_fragment"
+        tools:layout="@layout/showcmd_fragment" />
 
 </navigation>

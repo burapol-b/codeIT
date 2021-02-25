@@ -33,6 +33,7 @@ public class SelectDeviceActivity extends AppCompatActivity {
         // Get List of Paired Bluetooth Device
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
         List<Object> deviceList = new ArrayList<>();
+
         if (pairedDevices.size() > 0) {
             // There are paired devices. Get the name and address of each paired device.
             for (BluetoothDevice device : pairedDevices) {
@@ -44,6 +45,8 @@ public class SelectDeviceActivity extends AppCompatActivity {
             // Display paired device using recyclerView
             RecyclerView recyclerView = findViewById(R.id.recyclerViewDevice);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            recyclerView.setHasFixedSize(true);
             DeviceListAdapter deviceListAdapter = new DeviceListAdapter(this,deviceList);
             recyclerView.setAdapter(deviceListAdapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());

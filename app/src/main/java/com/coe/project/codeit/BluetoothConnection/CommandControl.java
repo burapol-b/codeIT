@@ -49,14 +49,8 @@ public class CommandControl extends AppCompatActivity {
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-        final ProgressBar progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);
-        final TextView textViewInfo = findViewById(R.id.textViewInfo);
-        final Button buttonToggle = findViewById(R.id.buttonToggle);
-        buttonToggle.setEnabled(false);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // If a bluetooth device has been selected from SelectDeviceActivity
         deviceName = getIntent().getStringExtra("deviceName");
@@ -64,8 +58,7 @@ public class CommandControl extends AppCompatActivity {
             // Get the device address to make BT Connection
             deviceAddress = getIntent().getStringExtra("deviceAddress");
             // Show progree and connection status
-            toolbar.setSubtitle("Connecting to " + deviceName + "...");
-            progressBar.setVisibility(View.VISIBLE);
+            //toolbar.setSubtitle("Connecting to " + deviceName + "...");
             buttonConnect.setEnabled(false);
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             createConnectThread = new CreateConnectThread(bluetoothAdapter,deviceAddress);
@@ -82,27 +75,12 @@ public class CommandControl extends AppCompatActivity {
                     case CONNECTING_STATUS:
                         switch(msg.arg1){
                             case 1:
-                                toolbar.setSubtitle("Connected to " + deviceName);
-                                progressBar.setVisibility(View.GONE);
+                                //toolbar.setSubtitle("Connected to " + deviceName);
                                 buttonConnect.setEnabled(true);
-                                buttonToggle.setEnabled(true);
                                 break;
                             case -1:
-                                toolbar.setSubtitle("Device fails to connect");
-                                progressBar.setVisibility(View.GONE);
+                                //toolbar.setSubtitle("Device fails to connect");
                                 buttonConnect.setEnabled(true);
-                                break;
-                        }
-                        break;
-
-                    case MESSAGE_READ:
-                        String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        switch (arduinoMsg.toLowerCase()){
-                            case "led is turned on":
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
-                                break;
-                            case "led is turned off":
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
                                 break;
                         }
                         break;
@@ -120,30 +98,6 @@ public class CommandControl extends AppCompatActivity {
             }
         });
 
-        // Button to ON/OFF LED on Arduino Board
-        buttonToggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String cmdText = null;
-                String btnState = buttonToggle.getText().toString().toLowerCase();
-                switch (btnState){
-                    case "turn on":
-                        buttonToggle.setText("Turn Off");
-                        System.out.println("ON");
-                        // Command to turn on LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "moveforward,movebackward,movebackward,movebackward";
-                        break;
-                    case "turn off":
-                        System.out.println("OFF");
-                        buttonToggle.setText("Turn On");
-                        // Command to turn off LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "movebackward,movebackward,moveleft,moveright";
-                        break;
-                }
-                // Send command to Arduino board
-                connectedThread.write(cmdText);
-            }
-        });
     }
 
     /* ============================ Thread to Create Bluetooth Connection =================================== */
@@ -216,8 +170,6 @@ public class CommandControl extends AppCompatActivity {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            // Get the input and output streams, using temp objects because
-            // member streams are final
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
@@ -254,7 +206,6 @@ public class CommandControl extends AppCompatActivity {
             }
         }
 
-        /* Call this from the main activity to send data to the remote device */
         public void write(String input) {
             byte[] bytes = input.getBytes(); //converts entered String into bytes
             try {
