@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_recyclerDragdropActivity"
             app:destination="@id/recyclerDragdropActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_codeScanner2"
+            app:destination="@id/codeScanner2" />
     </fragment>
 
     <activity
@@ -44,5 +47,9 @@
         android:name="com.coe.project.codeit.CodingPage.RecyclerDragdropActivity"
         android:label="showcmd_fragment"
         tools:layout="@layout/showcmd_fragment" />
+    <activity
+        android:id="@+id/codeScanner2"
+        android:name="com.coe.project.codeit.MarkerDetector.CodeScanner"
+        android:label="CodeScanner" />
 
 </navigation>

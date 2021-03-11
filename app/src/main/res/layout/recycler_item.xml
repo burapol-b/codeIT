@@ -13,10 +13,13 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@drawable/forward_arrow"
+        android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:visibility="gone"

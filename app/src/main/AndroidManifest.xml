@@ -30,6 +30,9 @@
         <activity android:name=".BluetoothConnection.SelectDeviceActivity"
             android:screenOrientation="landscape"></activity>
 
+        <activity android:name=".MarkerDetector.CodeScanner"
+            android:screenOrientation="portrait"></activity>
+
         <activity android:name=".CodingPage.RecyclerDragdropActivity" android:screenOrientation="landscape"></activity>
 
         <activity

@@ -44,7 +44,7 @@ public class FirstFragment extends Fragment {
 
         view.findViewById(R.id.bt_btn).setOnClickListener(view1 -> {
             NavHostFragment.findNavController(FirstFragment.this)
-                    .navigate(R.id.action_FirstFragment_to_selectDeviceActivity);
+                    .navigate(R.id.action_FirstFragment_to_codeScanner2);
         });
 
     }

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavAction;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -22,6 +24,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.coe.project.codeit.FirstFragment;
 import com.coe.project.codeit.R;
 
 import static com.coe.project.codeit.BluetoothConnection.CommandControl.connectedThread;
@@ -47,6 +51,7 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
         ImageButton left_btn = (ImageButton) findViewById(R.id.left_btn);
         ImageButton reset_btn = (ImageButton) findViewById(R.id.reset_btn);
         ImageButton run_btn = (ImageButton) findViewById(R.id.run_btn);
+        ImageButton camera_btn = (ImageButton) findViewById(R.id.camera_btn);
         TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
 
         forward_btn.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +105,13 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
                 cmdlist.clear();
                 recyclerAdapter.notifyDataSetChanged();
                 cmdlist_show.setText(cmdlist.toString());
+            }
+        });
+
+        camera_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
