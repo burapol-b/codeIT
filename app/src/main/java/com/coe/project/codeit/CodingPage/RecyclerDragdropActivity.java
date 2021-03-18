@@ -1,6 +1,7 @@
 package com.coe.project.codeit.CodingPage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -14,18 +15,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import com.coe.project.codeit.FirstFragment;
+import com.coe.project.codeit.MarkerDetector.CodeScanner;
 import com.coe.project.codeit.R;
 
 import static com.coe.project.codeit.BluetoothConnection.CommandControl.connectedThread;
@@ -35,15 +40,46 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
-    LinearLayoutManager linearLayoutManager;
 
-    List<String> cmdlist;
+    ArrayList<String> cmdlist;
+    ArrayList<String> cmd_temp;
+    ArrayList<String> IncomingCmd;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showcmd_fragment);
-        cmdlist = new ArrayList<>();
+        //incoming cmd
+        Intent intent = getIntent();
+        IncomingCmd = (ArrayList<String>) intent.getSerializableExtra("cmdlist");
+        System.out.println(IncomingCmd);
+
+        if (IncomingCmd == null && cmdlist == null) {
+            cmdlist = new ArrayList<>();
+            System.out.println("loop 1");
+        } else if (IncomingCmd != null && cmdlist == null){
+            cmd_temp = IncomingCmd;
+            cmdlist = new ArrayList<>();
+            cmd_temp.forEach((temp) -> {
+                System.out.println(temp);
+                switch (temp) {
+                    case "mf":
+                        cmdlist.add("mf");
+                        break;
+                    case "mb":
+                        cmdlist.add("mb");
+                        break;
+                    case "ml":
+                        cmdlist.add("ml");
+                        break;
+                    case "mr":
+                        cmdlist.add("mr");
+                        break;
+                }
+            });
+        }
+
 
         ImageButton forward_btn = (ImageButton) findViewById(R.id.forward_btn);
         ImageButton right_btn = (ImageButton) findViewById(R.id.right_btn);
@@ -52,14 +88,15 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
         ImageButton reset_btn = (ImageButton) findViewById(R.id.reset_btn);
         ImageButton run_btn = (ImageButton) findViewById(R.id.run_btn);
         ImageButton camera_btn = (ImageButton) findViewById(R.id.camera_btn);
-        TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
+        //TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
 
         forward_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cmdlist.add("mf");
                 recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
+                cmd_temp = cmdlist;
+                //cmdlist_show.setText(cmdlist.toString());
             }
         });
 
@@ -68,7 +105,8 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cmdlist.add("mb");
                 recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
+                cmd_temp = cmdlist;
+                //cmdlist_show.setText(cmdlist.toString());
             }
         });
 
@@ -77,7 +115,8 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cmdlist.add("mr");
                 recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
+                cmd_temp = cmdlist;
+                //cmdlist_show.setText(cmdlist.toString());
             }
         });
 
@@ -86,7 +125,8 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cmdlist.add("ml");
                 recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
+                cmd_temp = cmdlist;
+                //cmdlist_show.setText(cmdlist.toString());
             }
         });
 
@@ -95,23 +135,16 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cmdlist.clear();
                 recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
-            }
-        });
-
-        reset_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cmdlist.clear();
-                recyclerAdapter.notifyDataSetChanged();
-                cmdlist_show.setText(cmdlist.toString());
+                //cmdlist_show.setText(cmdlist.toString());
             }
         });
 
         camera_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(RecyclerDragdropActivity.this, CodeScanner.class);
+                intent.putExtra("cmdlist", (Serializable) cmdlist);
+                startActivity(intent);
             }
         });
 
@@ -127,13 +160,11 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
                     cmd = cmd.substring(0, cmd.length() - 1);
                 }
                 System.out.println(cmd);
-                connectedThread.write(cmd);
+                //connectedThread.write(cmd);
             }
         });
 
-        //linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.recyclerView);
-        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 5));
         recyclerAdapter = new RecyclerAdapter(cmdlist);
         recyclerView.setAdapter(recyclerAdapter);
@@ -152,11 +183,11 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
 
             int fromPosition = viewHolder.getAdapterPosition();
             int toPosition = target.getAdapterPosition();
-            TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
+            //TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
 
             Collections.swap(cmdlist, fromPosition, toPosition);
             recyclerView.getAdapter().notifyItemMoved(fromPosition, toPosition);
-            cmdlist_show.setText(cmdlist.toString());
+            //cmdlist_show.setText(cmdlist.toString());
             return false;
         }
 

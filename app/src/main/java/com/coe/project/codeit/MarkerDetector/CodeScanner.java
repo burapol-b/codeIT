@@ -1,6 +1,7 @@
 package com.coe.project.codeit.MarkerDetector;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.coe.project.codeit.CodingPage.RecyclerDragdropActivity;
 import com.coe.project.codeit.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,8 @@ public class CodeScanner extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cmdlist = new ArrayList<>();
+        Intent intent2 = getIntent();
+        cmdlist = (ArrayList<String>) intent2.getSerializableExtra("cmdlist");
 
         setContentView(R.layout.codescanner_fragment);
         mCodeScanner = new com.budiyev.android.codescanner.CodeScanner(this, findViewById(R.id.scanner_view));
@@ -45,9 +50,17 @@ public class CodeScanner extends AppCompatActivity {
         } else {
             mPermissionGranted = true;
         }
+
         findViewById(R.id.scanner_view).setOnClickListener(view1 -> {
             mCodeScanner.startPreview();
         });
+
+        findViewById(R.id.send_data).setOnClickListener(view1 -> {
+            Intent intent = new Intent(CodeScanner.this, RecyclerDragdropActivity.class);
+            intent.putExtra("cmdlist", (Serializable) cmdlist);
+            startActivity(intent);
+        });
+
 
     }
 
