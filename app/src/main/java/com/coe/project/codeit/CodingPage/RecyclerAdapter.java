@@ -37,13 +37,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.textView.setText(cmdlist.get(position));
 
         if (cmdlist.get(position) == "mf") {
-            holder.imageView.setImageResource(R.drawable.forward_arrow);
+            holder.imageView.setImageResource(R.drawable.forward);
         } else if (cmdlist.get(position) == "mb") {
-            holder.imageView.setImageResource(R.drawable.down_arrow);
+            holder.imageView.setImageResource(R.drawable.backward);
         } else if (cmdlist.get(position) == "mr") {
-            holder.imageView.setImageResource(R.drawable.right_arrow);
+            holder.imageView.setImageResource(R.drawable.right);
         } else if (cmdlist.get(position) == "ml") {
-            holder.imageView.setImageResource(R.drawable.left_arrow);
+            holder.imageView.setImageResource(R.drawable.left);
         }
     }
 
