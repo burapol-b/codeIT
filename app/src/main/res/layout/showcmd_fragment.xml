@@ -6,23 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".CodingPage.RecyclerDragdropActivity">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="493dp"
+        android:background="#C0E7FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp"></FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@color/colorOff"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.069" />
 
     <ImageButton
         android:id="@+id/left_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:background="@color/white"
         android:scaleType="fitCenter"
@@ -36,8 +48,8 @@
 
     <ImageButton
         android:id="@+id/right_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:background="@color/white"
         android:scaleType="fitCenter"
@@ -51,8 +63,8 @@
 
     <ImageButton
         android:id="@+id/right_btn2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:background="@color/white"
         android:scaleType="fitCenter"
@@ -64,26 +76,26 @@
         app:layout_constraintVertical_bias="0.897"
         app:srcCompat="@drawable/star" />
 
+
     <ImageButton
         android:id="@+id/forward_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:background="@color/white"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
         app:srcCompat="@drawable/forward" />
 
-
     <ImageButton
         android:id="@+id/backward_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:background="@color/white"
         android:scaleType="fitCenter"
@@ -100,7 +112,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:adjustViewBounds="true"
-        android:background="@color/white"
+        android:background="#C0E7FF"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044"
-        app:srcCompat="@drawable/back"/>
+        app:srcCompat="@drawable/back" />
 
     <ImageButton
         android:id="@+id/camera_btn"
@@ -154,6 +166,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044"
         app:srcCompat="@drawable/camera" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toTopOf="@+id/left_btn"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/map_level1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,6 @@ public class CommandControl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.commandcontrol_layout);
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);

@@ -4,23 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_blue"
+    android:background="@color/colorPrimary"
     tools:context=".FirstFragment">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/taptostart"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/start_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888"
-        tools:ignore="MissingConstraints" />
 
 
     <ImageButton
@@ -32,7 +17,7 @@
         android:background="@drawable/round_button"
         android:maxWidth="180dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/robot"
+        android:src="@drawable/logo_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
@@ -41,18 +26,32 @@
         app:layout_constraintVertical_bias="0.497"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/bt_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:clickable="true"
-        android:src="@drawable/smartphone"
+        android:scaleType="fitCenter"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/bluetooth_connected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.954" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="510dp"
+        android:layout_height="229dp"
+        android:src="@drawable/logo_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

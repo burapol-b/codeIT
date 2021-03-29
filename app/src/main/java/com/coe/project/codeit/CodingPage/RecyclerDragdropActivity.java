@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.coe.project.codeit.FirstFragment;
+import com.coe.project.codeit.MainActivity;
 import com.coe.project.codeit.MarkerDetector.CodeScanner;
 import com.coe.project.codeit.R;
 
@@ -88,6 +89,7 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
         ImageButton reset_btn = (ImageButton) findViewById(R.id.reset_btn);
         ImageButton run_btn = (ImageButton) findViewById(R.id.run_btn);
         ImageButton camera_btn = (ImageButton) findViewById(R.id.camera_btn);
+        ImageButton back_button = (ImageButton) findViewById(R.id.back_button);
         //TextView cmdlist_show = (TextView) findViewById(R.id.cmdlist_show);
 
         forward_btn.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +150,14 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             }
         });
 
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecyclerDragdropActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         run_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,7 +170,7 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
                     cmd = cmd.substring(0, cmd.length() - 1);
                 }
                 System.out.println(cmd);
-                //connectedThread.write(cmd);
+                connectedThread.write(cmd);
             }
         });
 

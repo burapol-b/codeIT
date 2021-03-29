@@ -9,12 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimary">#38B6FF</color>
     <color name="colorPrimaryDark">#0288D1</color>
     <color name="colorAccent">#E040FB</color>
     <color name="colorOff">#FFFFFF</color>
     <color name="colorOn">#E040FB</color>
-
     <color name="yellow">#FFEB3B</color>
     <color name="bg_blue">#0DB3EC</color>
 
