@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">codeit</string>
+    <string name="app_name">CodeiT</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
