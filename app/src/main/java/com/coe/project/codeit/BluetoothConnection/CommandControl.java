@@ -45,6 +45,7 @@ public class CommandControl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.commandcontrol_layout);
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);
@@ -100,7 +101,7 @@ public class CommandControl extends AppCompatActivity {
     }
 
     /* ============================ Thread to Create Bluetooth Connection =================================== */
-    public static class CreateConnectThread extends Thread {
+    public class CreateConnectThread extends Thread {
 
         public CreateConnectThread(BluetoothAdapter bluetoothAdapter, String address) {
             /*
@@ -121,6 +122,7 @@ public class CommandControl extends AppCompatActivity {
         }
 
         public void run() {
+            Intent intent = new Intent(CommandControl.this, MainActivity.class);
             // Cancel discovery because it otherwise slows down the connection.
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             bluetoothAdapter.cancelDiscovery();
@@ -130,6 +132,7 @@ public class CommandControl extends AppCompatActivity {
                 mmSocket.connect();
                 Log.e("Status", "Device connected");
                 handler.obtainMessage(CONNECTING_STATUS, 1, -1).sendToTarget();
+                startActivity(intent);
             } catch (IOException connectException) {
                 // Unable to connect; close the socket and return.
                 try {
