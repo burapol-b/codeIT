@@ -2,6 +2,7 @@ package com.coe.project.codeit.CodingPage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -15,20 +16,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.coe.project.codeit.BluetoothConnection.SelectDeviceActivity;
 import com.coe.project.codeit.FirstFragment;
 import com.coe.project.codeit.MainActivity;
 import com.coe.project.codeit.MarkerDetector.CodeScanner;
@@ -170,7 +177,19 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
                     cmd = cmd.substring(0, cmd.length() - 1);
                 }
                 System.out.println(cmd);
-                connectedThread.write(cmd);
+                try{
+                    connectedThread.write(cmd);
+                } catch (Exception ex) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RecyclerDragdropActivity.this);
+                    builder.setMessage("ยังไม่ได้เชื่อมต่อบลูทูธ ไปที่หน้าเชื่อมต่อ");
+                    builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent intent = new Intent(RecyclerDragdropActivity.this, SelectDeviceActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    builder.show();
+                }
             }
         });
 
@@ -207,9 +226,5 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
         }
 
     };
-
-
-
-
 
 }

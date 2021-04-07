@@ -49,7 +49,6 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         final DeviceInfoModel deviceInfoModel = (DeviceInfoModel) deviceList.get(position);
         itemHolder.textName.setText(deviceInfoModel.getDeviceName());
         itemHolder.textAddress.setText(deviceInfoModel.getDeviceHardwareAddress());
-
         // When a device is selected
         itemHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
