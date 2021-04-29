@@ -41,9 +41,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         } else if (cmdlist.get(position) == "mb") {
             holder.imageView.setImageResource(R.drawable.backward);
         } else if (cmdlist.get(position) == "mr") {
-            holder.imageView.setImageResource(R.drawable.right);
+            holder.imageView.setImageResource(R.drawable.turn_right);
         } else if (cmdlist.get(position) == "ml") {
-            holder.imageView.setImageResource(R.drawable.left);
+            holder.imageView.setImageResource(R.drawable.turn_left);
         }
     }
 

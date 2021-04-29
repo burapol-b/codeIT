@@ -44,7 +44,7 @@
         app:layout_constraintStart_toEndOf="@+id/backward_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/left" />
+        app:srcCompat="@drawable/turn_left" />
 
     <ImageButton
         android:id="@+id/right_btn"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toEndOf="@+id/left_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/right" />
+        app:srcCompat="@drawable/turn_right" />
 
     <ImageButton
         android:id="@+id/right_btn2"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toEndOf="@+id/right_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897"
-        app:srcCompat="@drawable/star" />
+        app:srcCompat="@drawable/gem" />
 
 
     <ImageButton
@@ -177,7 +177,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7"
-        app:srcCompat="@drawable/map_level2" />
+        app:srcCompat="@drawable/map_level_5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
