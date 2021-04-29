@@ -44,7 +44,7 @@ public class FirstFragment extends Fragment {
         myDialog = new Dialog(thiscontext);
 
         view.findViewById(R.id.start_btn).setOnClickListener(view1 -> NavHostFragment.findNavController(FirstFragment.this)
-                .navigate(R.id.action_FirstFragment_to_recyclerDragdropActivity));
+                .navigate(R.id.action_FirstFragment_to_levelselect));
 
         view.findViewById(R.id.bt_btn).setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), SelectDeviceActivity.class);

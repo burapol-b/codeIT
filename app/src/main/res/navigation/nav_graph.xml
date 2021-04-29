@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_recyclerDragdropActivity"
             app:destination="@id/recyclerDragdropActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_levelselect"
+            app:destination="@id/levelselect" />
     </fragment>
 
     <activity
@@ -29,8 +32,8 @@
         android:label="showcmd_fragment"
         tools:layout="@layout/showcmd_fragment" />
     <activity
-        android:id="@+id/codeScanner2"
-        android:name="com.coe.project.codeit.MarkerDetector.CodeScanner"
-        android:label="CodeScanner" />
+        android:id="@+id/levelselect"
+        android:name="com.coe.project.codeit.CodingPage.Levelselect"
+        android:label="Levelselect" />
 
 </navigation>

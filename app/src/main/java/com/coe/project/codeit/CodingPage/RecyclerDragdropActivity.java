@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,6 +89,29 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             });
         }
 
+        int level = intent.getIntExtra("level", 0);
+
+        TextView level_text = (TextView) findViewById(R.id.level);
+        level_text.setText("Level " + level);
+
+        ImageView level_map = (ImageView) findViewById(R.id.level_map);
+        switch (level) {
+            case 1:
+                level_map.setImageResource(R.drawable.level1_map);
+                break;
+            case 2:
+                level_map.setImageResource(R.drawable.level2_map);
+                break;
+            case 3:
+                level_map.setImageResource(R.drawable.level3_map);
+                break;
+            case 4:
+                level_map.setImageResource(R.drawable.level4_map);
+                break;
+            case 5:
+                level_map.setImageResource(R.drawable.level5_map);
+                break;
+        }
 
         ImageButton forward_btn = (ImageButton) findViewById(R.id.forward_btn);
         ImageButton right_btn = (ImageButton) findViewById(R.id.right_btn);
@@ -160,7 +184,7 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RecyclerDragdropActivity.this, MainActivity.class);
+                Intent intent = new Intent(RecyclerDragdropActivity.this, Levelselect.class);
                 startActivity(intent);
             }
         });

@@ -32,6 +32,8 @@
         <activity android:name=".BluetoothConnection.SelectDeviceActivity"
             android:screenOrientation="landscape"></activity>
 
+        <activity android:name=".CodingPage.Levelselect" android:screenOrientation="landscape"></activity>
+
         <activity android:name=".MarkerDetector.CodeScanner"
             android:screenOrientation="portrait"></activity>
 
