@@ -177,6 +177,7 @@ public class RecyclerDragdropActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RecyclerDragdropActivity.this, CodeScanner.class);
                 intent.putExtra("cmdlist", (Serializable) cmdlist);
+                intent.putExtra("level", (Integer) level);
                 startActivity(intent);
             }
         });

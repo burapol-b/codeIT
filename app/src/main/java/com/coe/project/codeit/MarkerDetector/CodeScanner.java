@@ -29,6 +29,7 @@ public class CodeScanner extends AppCompatActivity {
         cmdlist = new ArrayList<>();
         Intent intent2 = getIntent();
         cmdlist = (ArrayList<String>) intent2.getSerializableExtra("cmdlist");
+        int level = (Integer) intent2.getIntExtra("level", 0);
 
         setContentView(R.layout.codescanner_fragment);
         mCodeScanner = new com.budiyev.android.codescanner.CodeScanner(this, findViewById(R.id.scanner_view));
@@ -58,6 +59,7 @@ public class CodeScanner extends AppCompatActivity {
         findViewById(R.id.send_data).setOnClickListener(view1 -> {
             Intent intent = new Intent(CodeScanner.this, RecyclerDragdropActivity.class);
             intent.putExtra("cmdlist", (Serializable) cmdlist);
+            intent.putExtra("level", (Integer) level);
             startActivity(intent);
         });
 
